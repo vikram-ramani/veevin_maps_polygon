@@ -14,6 +14,8 @@ and the Flutter guide for
 TODO: Put a short description of the package here that helps potential users
 know whether this package might be useful for them.
 
+Polygon difference and union using floating point arithmetic. These are binary operations.
+
 ## Features
 
 TODO: List what your package can do. Maybe include images, gifs, or videos.
