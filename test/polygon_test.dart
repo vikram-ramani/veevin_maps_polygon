@@ -1,6 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:veevin_maps_polygon/pol_edge.dart';
-import 'package:veevin_maps_polygon/pol_int_point.dart';
 import 'package:veevin_maps_polygon/polygon.dart';
 
 void main() {

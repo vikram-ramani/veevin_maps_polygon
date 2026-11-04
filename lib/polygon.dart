@@ -69,32 +69,11 @@ class VPolygon {
 
   bool isPointInsideOrOnEdgePolygonVV(({double lat, double lng}) point) {
     List<({double lat, double lng})> polygon = pointsLatLng;
-    if (printDebug) {
-      print('Checking if point is inside or on edge of polygon: $point');
-      print('Polygon: $polygon');
-    }
     int rayInterCounter = 0;
     for (int i = 0; i < polygon.length; i++) {
       var currentPoint = polygon[i];
       var nextPoint = polygon[(i + 1) % polygon.length];
-      if (printDebug) {
-        print(
-          'y currentPoint: ${currentPoint.lat}, nextPoint: ${nextPoint.lat}',
-        );
-        print('y point: ${point.lat}');
-        print(
-          'y  inside ${((point.lat >= currentPoint.lat && point.lat <= nextPoint.lat) || (point.lat <= currentPoint.lat && point.lat >= nextPoint.lat))}',
-        );
-      }
-      if (printDebug) {
-        print(
-          'x currentPoint: ${currentPoint.lng}, nextPoint: ${nextPoint.lng}',
-        );
-        print('x point: ${point.lng}');
-        print(
-          'x  inside ${((point.lng >= currentPoint.lng && point.lng <= nextPoint.lng) || (point.lng <= currentPoint.lng && point.lng >= nextPoint.lng))}',
-        );
-      }
+
       if ((point.lng >= currentPoint.lng && point.lng <= nextPoint.lng) ||
           (point.lng <= currentPoint.lng && point.lng >= nextPoint.lng)) {
         if (point.lat <= max(nextPoint.lat, currentPoint.lat)) {
@@ -143,34 +122,33 @@ class VPolygon {
     var (x1, y1) = (edgeStart1.lat, edgeStart1.lng);
     var (x2, y2) = (edgeEnd1.lat, edgeEnd1.lng);
     var (xp, yp) = (point.lat, point.lng);
-    double edg_x_diff = x2 - x1;
-    double edg_y_diff = y2 - y1;
-    if (edg_x_diff.abs() < precision) {
+    double edgXDiff = x2 - x1;
+    double edgYDiff = y2 - y1;
+    if (edgXDiff.abs() < precision) {
       // Vertical line case
-      double point_x_diff = xp - x1;
-      double point_y_diff = yp - y1;
-      if (point_x_diff.abs() < precision) {
+      double pointXDiff = xp - x1;
+      double pointYDiff = yp - y1;
+      if (pointXDiff.abs() < precision) {
         if ((y1 <= yp && yp <= y2) || (y2 <= yp && yp <= y1)) {
           return 0; // Point is on the edge
         }
         return 2; // Point is outside the polygon
-      } else if ((point_x_diff > 0 && edg_y_diff > 0) ||
-          (point_x_diff < 0 && edg_y_diff < 0)) {
+      } else if ((pointXDiff > 0 && edgYDiff > 0) ||
+          (pointXDiff < 0 && edgYDiff < 0)) {
         return -1; // Point is outside the polygon
       }
       return 1; // Point is inside the polygon
     }
-    double m_slope = (y2 - y1) / edg_x_diff;
-    double c_intercept = y1 - m_slope * x1;
-    double y_on_line = m_slope * xp + c_intercept;
-    double y_diff = yp - y_on_line;
-    if (y_diff.abs() < precision) {
+    double mSlope = (y2 - y1) / edgXDiff;
+    double cIntercept = y1 - mSlope * x1;
+    double yOnLine = mSlope * xp + cIntercept;
+    double yDiff = yp - yOnLine;
+    if (yDiff.abs() < precision) {
       if ((x1 <= xp && xp <= x2) || (x2 <= xp && xp <= x1)) {
-        return 0; // Point is insdie the polygon
+        return 0; // Point is inside the polygon
       }
       return 2; // Point is outside the polygon
-    } else if ((y_diff > 0 && edg_x_diff > 0) ||
-        (y_diff < 0 && edg_x_diff < 0)) {
+    } else if ((yDiff > 0 && edgXDiff > 0) || (yDiff < 0 && edgXDiff < 0)) {
       return 1;
     }
     return -1;

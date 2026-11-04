@@ -4,7 +4,9 @@ import 'package:veevin_maps_polygon/polygon.dart';
 import 'pol_edge.dart';
 
 class VPolIntPoint extends VPoint {
+  @override
   final double precision = 0.000000001;
+
   late VPolEdge edgeA, edgeB;
   bool isInside = false;
 
