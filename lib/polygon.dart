@@ -127,7 +127,7 @@ class VPolygon {
     if (edgXDiff.abs() < precision) {
       // Vertical line case
       double pointXDiff = xp - x1;
-      double pointYDiff = yp - y1;
+      //double pointYDiff = yp - y1;
       if (pointXDiff.abs() < precision) {
         if ((y1 <= yp && yp <= y2) || (y2 <= yp && yp <= y1)) {
           return 0; // Point is on the edge

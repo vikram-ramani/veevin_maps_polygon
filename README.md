@@ -11,31 +11,60 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-Polygon difference and union using floating point arithmetic. These are binary operations.
+Polygon difference and union using floating point arithmetic. These are binary operations. Used for geo coordinates, with adjustible precision.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Polygon difference and union operations using floating point arithmetic. These are binary operations. Additional polygon functions to explore.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+No prerequisites for this package. 
 
 ## Usage
+Examples.
+Polygon difference:
+    List<({double lat, double lng})> polygonOriginal = [
+        (lat: 0.0, lng: 0.0),
+        (lat: 10.0, lng: 0.0),
+        (lat: 10.0, lng: 10.0),
+        (lat: 0.0, lng: 10.0),
+      ];
+      List<({double lat, double lng})> polygonNew = [
+        (lat: 3.0, lng: -5.0),
+        (lat: 6.0, lng: -5.0),
+        (lat: 6.0, lng: 15.0),
+        (lat: 3.0, lng: 15.0),
+      ];
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+      VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+      binary.polygonDifference();
+      binary.pDiffPolygons[0].getPolygonLatLng();
+      binary.pDiffPolygons[1].getPolygonLatLng();
+      var diffPoly0 = binary.pDiffPolygons[0].pointsLatLng;
+      var diffPoly1 = binary.pDiffPolygons[1].pointsLatLng;
 
-```dart
-const like = 'sample';
-```
+Polygon Union:
+    List<({double lat, double lng})> polygonOriginal = [
+      (lat: -5.0, lng: 5.0),
+      (lat: 5.0, lng: 5.0),
+      (lat: 5.0, lng: 15.0),
+      (lat: -5.0, lng: 15.0),
+    ];
+    List<({double lat, double lng})> polygonNew = [
+      (lat: 0.0, lng: 0.0),
+      (lat: 10.0, lng: 0.0),
+      (lat: 10.0, lng: 10.0),
+      (lat: 0.0, lng: 10.0),
+    ];
+
+    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    binary.polygonUnion();
+    binary.pUnPolygons[0].getPolygonLatLng();
+    var unionPoly = binary.pUnPolygons[0].pointsLatLng;
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+For more information:
+homepage: https://github.com/veevin/veevin_maps_polygon
+email: <vikram.ramani@outlook.com>
