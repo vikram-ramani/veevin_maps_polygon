@@ -272,4 +272,193 @@ void main() {
     expect(result1, true);
     expect(result2, false);
   });
+
+  test('do polygons intersect within bounds - 1', () {
+    List<({double lat, double lng})> polygonOriginal = [
+      (lat: -5.0, lng: 5.0),
+      (lat: 5.0, lng: 5.0),
+      (lat: 5.0, lng: 15.0),
+      (lat: -5.0, lng: 15.0),
+    ];
+    List<({double lat, double lng})> polygonNew = [
+      (lat: 0.0, lng: 0.0),
+      (lat: 10.0, lng: 0.0),
+      (lat: 10.0, lng: 10.0),
+      (lat: 0.0, lng: 10.0),
+    ];
+
+    VPolygon polygon = VPolygon();
+    var result = polygon.doPolygonsIntersectWithBounds(
+      polygonOriginal,
+      polygonNew,
+    );
+    print(result);
+    expect(true, result);
+  });
+
+  test('do polygons intersect within bounds - 2', () {
+    List<({double lat, double lng})> polygonOriginal = [
+      (lat: -15.0, lng: 5.0),
+      (lat: -5.0, lng: 5.0),
+      (lat: -5.0, lng: 15.0),
+      (lat: -15.0, lng: 15.0),
+    ];
+    List<({double lat, double lng})> polygonNew = [
+      (lat: 0.0, lng: 0.0),
+      (lat: 10.0, lng: 0.0),
+      (lat: 10.0, lng: 10.0),
+      (lat: 0.0, lng: 10.0),
+    ];
+
+    VPolygon polygon = VPolygon();
+    var result = polygon.doPolygonsIntersectWithBounds(
+      polygonOriginal,
+      polygonNew,
+    );
+    print(result);
+    expect(false, result);
+  });
+
+  test('do polygons exact - 1', () {
+    List<({double lat, double lng})> polygonOriginal = [
+      (lat: -5.0, lng: 5.0),
+      (lat: 5.0, lng: 5.0),
+      (lat: 5.0, lng: 15.0),
+      (lat: -5.0, lng: 15.0),
+    ];
+    List<({double lat, double lng})> polygonNew = [
+      (lat: 0.0, lng: 0.0),
+      (lat: 10.0, lng: 0.0),
+      (lat: 10.0, lng: 10.0),
+      (lat: 0.0, lng: 10.0),
+    ];
+
+    VPolygon polygon = VPolygon();
+    var result = polygon.doPolygonsIntersectExact(polygonOriginal, polygonNew);
+    print(result);
+    expect(true, result);
+  });
+
+  test('do polygons intersect exact - 2', () {
+    List<({double lat, double lng})> polygonOriginal = [
+      (lat: -15.0, lng: 5.0),
+      (lat: -5.0, lng: 5.0),
+      (lat: -5.0, lng: 15.0),
+      (lat: -15.0, lng: 15.0),
+    ];
+    List<({double lat, double lng})> polygonNew = [
+      (lat: 0.0, lng: 0.0),
+      (lat: 10.0, lng: 0.0),
+      (lat: 10.0, lng: 10.0),
+      (lat: 0.0, lng: 10.0),
+    ];
+
+    VPolygon polygon = VPolygon();
+    var result = polygon.doPolygonsIntersectExact(polygonOriginal, polygonNew);
+    print(result);
+    expect(false, result);
+  });
+
+  test('do polygons intersect - 1', () {
+    List<({double lat, double lng})> polygonOriginal = [
+      (lat: -5.0, lng: 5.0),
+      (lat: 5.0, lng: 5.0),
+      (lat: 5.0, lng: 15.0),
+      (lat: -5.0, lng: 15.0),
+    ];
+    List<({double lat, double lng})> polygonNew = [
+      (lat: 0.0, lng: 0.0),
+      (lat: 10.0, lng: 0.0),
+      (lat: 10.0, lng: 10.0),
+      (lat: 0.0, lng: 10.0),
+    ];
+
+    VPolygon polygon = VPolygon();
+    var result = polygon.doPolygonsIntersect(polygonOriginal, polygonNew);
+    print(result);
+    expect(true, result);
+  });
+
+  test('do polygons intersect - 2', () {
+    List<({double lat, double lng})> polygonOriginal = [
+      (lat: -15.0, lng: 5.0),
+      (lat: -5.0, lng: 5.0),
+      (lat: -5.0, lng: 15.0),
+      (lat: -15.0, lng: 15.0),
+    ];
+    List<({double lat, double lng})> polygonNew = [
+      (lat: 0.0, lng: 0.0),
+      (lat: 10.0, lng: 0.0),
+      (lat: 10.0, lng: 10.0),
+      (lat: 0.0, lng: 10.0),
+    ];
+
+    VPolygon polygon = VPolygon();
+    var result = polygon.doPolygonsIntersect(polygonOriginal, polygonNew);
+    print(result);
+    expect(false, result);
+  });
+
+  test('do polygons intersect - 3', () {
+    List<({double lat, double lng})> polygonOriginal = [
+      (lat: -10.0, lng: 0.0),
+      (lat: -5.0, lng: 10.0),
+      (lat: 5.0, lng: 10.0),
+      (lat: -5.0, lng: 0.0),
+    ];
+    List<({double lat, double lng})> polygonNew = [
+      (lat: 0.0, lng: 0.0),
+      (lat: 10.0, lng: 10.0),
+      (lat: 20.0, lng: 10.0),
+      (lat: 10.0, lng: 0.0),
+    ];
+
+    VPolygon polygon = VPolygon();
+    var result = polygon.doPolygonsIntersect(polygonOriginal, polygonNew);
+    print(result);
+    expect(false, result);
+  });
+
+  test('do polygons intersect within bounds - 3', () {
+    List<({double lat, double lng})> polygonOriginal = [
+      (lat: -10.0, lng: 0.0),
+      (lat: -5.0, lng: 10.0),
+      (lat: 5.0, lng: 10.0),
+      (lat: -5.0, lng: 0.0),
+    ];
+    List<({double lat, double lng})> polygonNew = [
+      (lat: 0.0, lng: 0.0),
+      (lat: 10.0, lng: 10.0),
+      (lat: 20.0, lng: 10.0),
+      (lat: 10.0, lng: 0.0),
+    ];
+
+    VPolygon polygon = VPolygon();
+    var result = polygon.doPolygonsIntersectWithBounds(
+      polygonOriginal,
+      polygonNew,
+    );
+    print(result);
+    expect(true, result);
+  });
+
+  test('do polygons intersect exact - 3', () {
+    List<({double lat, double lng})> polygonOriginal = [
+      (lat: -10.0, lng: 0.0),
+      (lat: -5.0, lng: 10.0),
+      (lat: 5.0, lng: 10.0),
+      (lat: -5.0, lng: 0.0),
+    ];
+    List<({double lat, double lng})> polygonNew = [
+      (lat: 0.0, lng: 0.0),
+      (lat: 10.0, lng: 10.0),
+      (lat: 20.0, lng: 10.0),
+      (lat: 10.0, lng: 0.0),
+    ];
+
+    VPolygon polygon = VPolygon();
+    var result = polygon.doPolygonsIntersectExact(polygonOriginal, polygonNew);
+    print(result);
+    expect(false, result);
+  });
 }

@@ -199,8 +199,8 @@ class VPolygon {
     List<({double lat, double lng})> polygon1,
     List<({double lat, double lng})> polygon2,
   ) {
-    if (doPolygonsIntersectWithBounds(polygon1, polygon2)) {
-      return true;
+    if (!doPolygonsIntersectWithBounds(polygon1, polygon2)) {
+      return false;
     }
     return doPolygonsIntersectExact(polygon1, polygon2);
   }
