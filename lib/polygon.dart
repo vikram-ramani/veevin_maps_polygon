@@ -195,7 +195,8 @@ class VPolygon {
         bounds1.lngmin > bounds2.lngmax);
   }
 
-  bool doPolygonsIntersect(
+  //Fast and exact polygon intersection check. First checks bounding boxes, then checks exact intersection.
+  bool doPolygonsIntersectExactFast(
     List<({double lat, double lng})> polygon1,
     List<({double lat, double lng})> polygon2,
   ) {

@@ -374,7 +374,10 @@ void main() {
     ];
 
     VPolygon polygon = VPolygon();
-    var result = polygon.doPolygonsIntersect(polygonOriginal, polygonNew);
+    var result = polygon.doPolygonsIntersectExactFast(
+      polygonOriginal,
+      polygonNew,
+    );
     print(result);
     expect(true, result);
   });
@@ -394,7 +397,10 @@ void main() {
     ];
 
     VPolygon polygon = VPolygon();
-    var result = polygon.doPolygonsIntersect(polygonOriginal, polygonNew);
+    var result = polygon.doPolygonsIntersectExactFast(
+      polygonOriginal,
+      polygonNew,
+    );
     print(result);
     expect(false, result);
   });
@@ -414,7 +420,10 @@ void main() {
     ];
 
     VPolygon polygon = VPolygon();
-    var result = polygon.doPolygonsIntersect(polygonOriginal, polygonNew);
+    var result = polygon.doPolygonsIntersectExactFast(
+      polygonOriginal,
+      polygonNew,
+    );
     print(result);
     expect(false, result);
   });
