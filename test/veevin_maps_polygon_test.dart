@@ -15,7 +15,7 @@ void main() {
   });
 
   test('polygon difference keeps the area of A outside overlapping B', () {
-    final binary = VPolBinary(
+    final binary = VPolBinary.runInit(
       [(lat: 0, lng: 0), (lat: 4, lng: 0), (lat: 4, lng: 4), (lat: 0, lng: 4)],
       [
         (lat: 2, lng: -1),
@@ -32,7 +32,7 @@ void main() {
   test(
     'polygon difference keeps contained cutouts as a reverse-wound ring',
     () {
-      final binary = VPolBinary(
+      final binary = VPolBinary.runInit(
         [
           (lat: 0, lng: 0),
           (lat: 4, lng: 0),
@@ -57,7 +57,7 @@ void main() {
   );
 
   test('polygon difference handles disjoint and fully covered polygons', () {
-    final binary = VPolBinary(
+    final binary = VPolBinary.runInit(
       [(lat: 0, lng: 0), (lat: 4, lng: 0), (lat: 4, lng: 4), (lat: 0, lng: 4)],
       [(lat: 5, lng: 5), (lat: 6, lng: 5), (lat: 6, lng: 6), (lat: 5, lng: 6)],
     )..polygonDifference();
@@ -85,7 +85,7 @@ void main() {
   });
 
   test('polygon union joins overlapping boundaries at intersections', () {
-    final binary = VPolBinary(
+    final binary = VPolBinary.runInit(
       [(lat: 0, lng: 0), (lat: 4, lng: 0), (lat: 4, lng: 4), (lat: 0, lng: 4)],
       [
         (lat: 2, lng: -1),
@@ -100,7 +100,7 @@ void main() {
   });
 
   test('polygon union handles containment and disjoint polygons', () {
-    final binary = VPolBinary(
+    final binary = VPolBinary.runInit(
       [(lat: 0, lng: 0), (lat: 4, lng: 0), (lat: 4, lng: 4), (lat: 0, lng: 4)],
       [(lat: 1, lng: 1), (lat: 3, lng: 1), (lat: 3, lng: 3), (lat: 1, lng: 3)],
     )..polygonUnion();

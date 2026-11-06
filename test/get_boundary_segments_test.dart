@@ -13,7 +13,7 @@ void main() {
   });
 
   test('polygon difference keeps the area of A outside overlapping B', () {
-    final binary = VPolBinary(
+    final binary = VPolBinary.runInit(
       [(lat: 0, lng: 0), (lat: 4, lng: 0), (lat: 4, lng: 4), (lat: 0, lng: 4)],
       [
         (lat: 2, lng: -1),
@@ -34,7 +34,7 @@ void main() {
   });
 
   test('get boundary segments 1', () {
-    final binary = VPolBinary(
+    final binary = VPolBinary.runInit(
       [(lat: 0, lng: 0), (lat: 4, lng: 0), (lat: 4, lng: 4), (lat: 0, lng: 4)],
       [
         (lat: 2, lng: -1),

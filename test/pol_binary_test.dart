@@ -16,7 +16,7 @@ void main() {
       (lat: 15.0, lng: 15.0),
       (lat: 5.0, lng: 15.0),
     ];
-    VPolBinary binary = VPolBinary(polygonNew, polygonOld);
+    VPolBinary binary = VPolBinary.runInit(polygonNew, polygonOld);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -60,7 +60,7 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonNew, polygonOld);
+    VPolBinary binary = VPolBinary.runInit(polygonNew, polygonOld);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -101,7 +101,7 @@ void main() {
       (lat: -5.0, lng: 15.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonNew, polygonOld);
+    VPolBinary binary = VPolBinary.runInit(polygonNew, polygonOld);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -142,7 +142,7 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonNew, polygonOld);
+    VPolBinary binary = VPolBinary.runInit(polygonNew, polygonOld);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -183,7 +183,7 @@ void main() {
       (lat: -5.0, lng: 15.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonNew, polygonOld);
+    VPolBinary binary = VPolBinary.runInit(polygonNew, polygonOld);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -224,7 +224,7 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonNew, polygonOld);
+    VPolBinary binary = VPolBinary.runInit(polygonNew, polygonOld);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -258,7 +258,7 @@ void main() {
       (lat: -10.0, lng: 0.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonNew, polygonOld);
+    VPolBinary binary = VPolBinary.runInit(polygonNew, polygonOld);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -293,7 +293,7 @@ void main() {
       (lat: -5.0, lng: 0.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonNew, polygonOld);
+    VPolBinary binary = VPolBinary.runInit(polygonNew, polygonOld);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -330,7 +330,7 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonNew, polygonOld);
+    VPolBinary binary = VPolBinary.runInit(polygonNew, polygonOld);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -367,7 +367,7 @@ void main() {
       (lat: 5.0, lng: 20.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonNew, polygonOld);
+    VPolBinary binary = VPolBinary.runInit(polygonNew, polygonOld);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -404,7 +404,7 @@ void main() {
       (lat: -5.0, lng: 15.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -439,7 +439,7 @@ void main() {
       (lat: 5.0, lng: 15.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -474,7 +474,7 @@ void main() {
       (lat: -5.0, lng: 15.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonDifference();
     expect(binary.pDiffPolygons.length, equals(0));
   });
@@ -493,7 +493,7 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     var diffPoly = binary.pDiffPolygons[0].pointsLatLng;
@@ -529,7 +529,7 @@ void main() {
       (lat: 3.0, lng: 7.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonDifference();
     binary.pDiffPolygons[0].getPolygonLatLng();
     binary.pDiffPolygons[1].getPolygonLatLng();
@@ -585,7 +585,7 @@ void main() {
         (lat: 3.0, lng: 15.0),
       ];
 
-      VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+      VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
       binary.polygonDifference();
       binary.pDiffPolygons[0].getPolygonLatLng();
       binary.pDiffPolygons[1].getPolygonLatLng();
@@ -637,37 +637,37 @@ void main() {
       (lat: 5.0, lng: 15.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
-    var diffPoly = binary.pUnPolygons[0].pointsLatLng;
-    print(diffPoly);
+    var unPoly = binary.pUnPolygons[0].pointsLatLng;
+    print(unPoly);
 
-    expect(diffPoly.length, equals(8));
+    expect(unPoly.length, equals(8));
 
-    expect(diffPoly[0].lat, equals(0.0));
-    expect(diffPoly[0].lng, equals(0.0));
+    expect(unPoly[0].lat, equals(0.0));
+    expect(unPoly[0].lng, equals(0.0));
 
-    expect(diffPoly[1].lat, equals(10.0));
-    expect(diffPoly[1].lng, equals(0.0));
+    expect(unPoly[1].lat, equals(10.0));
+    expect(unPoly[1].lng, equals(0.0));
 
-    expect(diffPoly[2].lat, equals(10.0));
-    expect(diffPoly[2].lng, equals(5.0));
+    expect(unPoly[2].lat, equals(10.0));
+    expect(unPoly[2].lng, equals(5.0));
 
-    expect(diffPoly[3].lat, equals(15.0));
-    expect(diffPoly[3].lng, equals(5.0));
+    expect(unPoly[3].lat, equals(15.0));
+    expect(unPoly[3].lng, equals(5.0));
 
-    expect(diffPoly[4].lat, equals(15.0));
-    expect(diffPoly[4].lng, equals(15.0));
+    expect(unPoly[4].lat, equals(15.0));
+    expect(unPoly[4].lng, equals(15.0));
 
-    expect(diffPoly[5].lat, equals(5.0));
-    expect(diffPoly[5].lng, equals(15.0));
+    expect(unPoly[5].lat, equals(5.0));
+    expect(unPoly[5].lng, equals(15.0));
 
-    expect(diffPoly[6].lat, equals(5.0));
-    expect(diffPoly[6].lng, equals(10.0));
+    expect(unPoly[6].lat, equals(5.0));
+    expect(unPoly[6].lng, equals(10.0));
 
-    expect(diffPoly[7].lat, equals(0.0));
-    expect(diffPoly[7].lng, equals(10.0));
+    expect(unPoly[7].lat, equals(0.0));
+    expect(unPoly[7].lng, equals(10.0));
   });
 
   test('polygon overlapp cross 2 - new lower left', () {
@@ -684,37 +684,37 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
-    var diffPoly = binary.pUnPolygons[0].pointsLatLng;
-    print(diffPoly);
+    var unPoly = binary.pUnPolygons[0].pointsLatLng;
+    print(unPoly);
 
-    expect(diffPoly.length, equals(8));
+    expect(unPoly.length, equals(8));
 
-    expect(diffPoly[0].lat, equals(10.0));
-    expect(diffPoly[0].lng, equals(5.0));
+    expect(unPoly[0].lat, equals(10.0));
+    expect(unPoly[0].lng, equals(5.0));
 
-    expect(diffPoly[1].lat, equals(15.0));
-    expect(diffPoly[1].lng, equals(5.0));
+    expect(unPoly[1].lat, equals(15.0));
+    expect(unPoly[1].lng, equals(5.0));
 
-    expect(diffPoly[2].lat, equals(15.0));
-    expect(diffPoly[2].lng, equals(15.0));
+    expect(unPoly[2].lat, equals(15.0));
+    expect(unPoly[2].lng, equals(15.0));
 
-    expect(diffPoly[3].lat, equals(5.0));
-    expect(diffPoly[3].lng, equals(15.0));
+    expect(unPoly[3].lat, equals(5.0));
+    expect(unPoly[3].lng, equals(15.0));
 
-    expect(diffPoly[4].lat, equals(5.0));
-    expect(diffPoly[4].lng, equals(10.0));
+    expect(unPoly[4].lat, equals(5.0));
+    expect(unPoly[4].lng, equals(10.0));
 
-    expect(diffPoly[5].lat, equals(0.0));
-    expect(diffPoly[5].lng, equals(10.0));
+    expect(unPoly[5].lat, equals(0.0));
+    expect(unPoly[5].lng, equals(10.0));
 
-    expect(diffPoly[6].lat, equals(0.0));
-    expect(diffPoly[6].lng, equals(0.0));
+    expect(unPoly[6].lat, equals(0.0));
+    expect(unPoly[6].lng, equals(0.0));
 
-    expect(diffPoly[7].lat, equals(10.0));
-    expect(diffPoly[7].lng, equals(0.0));
+    expect(unPoly[7].lat, equals(10.0));
+    expect(unPoly[7].lng, equals(0.0));
   });
 
   test('polygon overlapp cross 3 - new lower right', () {
@@ -731,37 +731,37 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
-    var diffPoly = binary.pUnPolygons[0].pointsLatLng;
-    print(diffPoly);
+    var unPoly = binary.pUnPolygons[0].pointsLatLng;
+    print(unPoly);
 
-    expect(diffPoly.length, equals(8));
+    expect(unPoly.length, equals(8));
 
-    expect(diffPoly[0].lat, equals(-5.0));
-    expect(diffPoly[0].lng, equals(5.0));
+    expect(unPoly[0].lat, equals(-5.0));
+    expect(unPoly[0].lng, equals(5.0));
 
-    expect(diffPoly[1].lat, equals(0.0));
-    expect(diffPoly[1].lng, equals(5.0));
+    expect(unPoly[1].lat, equals(0.0));
+    expect(unPoly[1].lng, equals(5.0));
 
-    expect(diffPoly[2].lat, equals(0.0));
-    expect(diffPoly[2].lng, equals(0.0));
+    expect(unPoly[2].lat, equals(0.0));
+    expect(unPoly[2].lng, equals(0.0));
 
-    expect(diffPoly[3].lat, equals(10.0));
-    expect(diffPoly[3].lng, equals(0.0));
+    expect(unPoly[3].lat, equals(10.0));
+    expect(unPoly[3].lng, equals(0.0));
 
-    expect(diffPoly[4].lat, equals(10.0));
-    expect(diffPoly[4].lng, equals(10.0));
+    expect(unPoly[4].lat, equals(10.0));
+    expect(unPoly[4].lng, equals(10.0));
 
-    expect(diffPoly[5].lat, equals(5.0));
-    expect(diffPoly[5].lng, equals(10.0));
+    expect(unPoly[5].lat, equals(5.0));
+    expect(unPoly[5].lng, equals(10.0));
 
-    expect(diffPoly[6].lat, equals(5.0));
-    expect(diffPoly[6].lng, equals(15.0));
+    expect(unPoly[6].lat, equals(5.0));
+    expect(unPoly[6].lng, equals(15.0));
 
-    expect(diffPoly[7].lat, equals(-5.0));
-    expect(diffPoly[7].lng, equals(15.0));
+    expect(unPoly[7].lat, equals(-5.0));
+    expect(unPoly[7].lng, equals(15.0));
   });
 
   test('polygon overlapp cross 4 - new upper left', () {
@@ -778,37 +778,37 @@ void main() {
       (lat: -5.0, lng: 15.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
-    var diffPoly = binary.pUnPolygons[0].pointsLatLng;
-    print(diffPoly);
+    var unPoly = binary.pUnPolygons[0].pointsLatLng;
+    print(unPoly);
 
-    expect(diffPoly.length, equals(8));
+    expect(unPoly.length, equals(8));
 
-    expect(diffPoly[0].lat, equals(0.0));
-    expect(diffPoly[0].lng, equals(0.0));
+    expect(unPoly[0].lat, equals(0.0));
+    expect(unPoly[0].lng, equals(0.0));
 
-    expect(diffPoly[1].lat, equals(10.0));
-    expect(diffPoly[1].lng, equals(0.0));
+    expect(unPoly[1].lat, equals(10.0));
+    expect(unPoly[1].lng, equals(0.0));
 
-    expect(diffPoly[2].lat, equals(10.0));
-    expect(diffPoly[2].lng, equals(10.0));
+    expect(unPoly[2].lat, equals(10.0));
+    expect(unPoly[2].lng, equals(10.0));
 
-    expect(diffPoly[3].lat, equals(5.0));
-    expect(diffPoly[3].lng, equals(10.0));
+    expect(unPoly[3].lat, equals(5.0));
+    expect(unPoly[3].lng, equals(10.0));
 
-    expect(diffPoly[4].lat, equals(5.0));
-    expect(diffPoly[4].lng, equals(15.0));
+    expect(unPoly[4].lat, equals(5.0));
+    expect(unPoly[4].lng, equals(15.0));
 
-    expect(diffPoly[5].lat, equals(-5.0));
-    expect(diffPoly[5].lng, equals(15.0));
+    expect(unPoly[5].lat, equals(-5.0));
+    expect(unPoly[5].lng, equals(15.0));
 
-    expect(diffPoly[6].lat, equals(-5.0));
-    expect(diffPoly[6].lng, equals(5.0));
+    expect(unPoly[6].lat, equals(-5.0));
+    expect(unPoly[6].lng, equals(5.0));
 
-    expect(diffPoly[7].lat, equals(0.0));
-    expect(diffPoly[7].lng, equals(5.0));
+    expect(unPoly[7].lat, equals(0.0));
+    expect(unPoly[7].lng, equals(5.0));
   });
 
   test('polygon overlap cut across 1 - new left', () {
@@ -825,37 +825,37 @@ void main() {
       (lat: -5.0, lng: 15.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
-    var diffPoly = binary.pUnPolygons[0].pointsLatLng;
-    print(diffPoly);
+    var unPoly = binary.pUnPolygons[0].pointsLatLng;
+    print(unPoly);
 
-    expect(diffPoly.length, equals(8));
+    expect(unPoly.length, equals(8));
 
-    expect(diffPoly[0].lat, equals(5.0));
-    expect(diffPoly[0].lng, equals(0.0));
+    expect(unPoly[0].lat, equals(5.0));
+    expect(unPoly[0].lng, equals(0.0));
 
-    expect(diffPoly[1].lat, equals(10.0));
-    expect(diffPoly[1].lng, equals(0.0));
+    expect(unPoly[1].lat, equals(10.0));
+    expect(unPoly[1].lng, equals(0.0));
 
-    expect(diffPoly[2].lat, equals(10.0));
-    expect(diffPoly[2].lng, equals(10.0));
+    expect(unPoly[2].lat, equals(10.0));
+    expect(unPoly[2].lng, equals(10.0));
 
-    expect(diffPoly[3].lat, equals(5.0));
-    expect(diffPoly[3].lng, equals(10.0));
+    expect(unPoly[3].lat, equals(5.0));
+    expect(unPoly[3].lng, equals(10.0));
 
-    expect(diffPoly[4].lat, equals(5.0));
-    expect(diffPoly[4].lng, equals(15.0));
+    expect(unPoly[4].lat, equals(5.0));
+    expect(unPoly[4].lng, equals(15.0));
 
-    expect(diffPoly[5].lat, equals(-5.0));
-    expect(diffPoly[5].lng, equals(15.0));
+    expect(unPoly[5].lat, equals(-5.0));
+    expect(unPoly[5].lng, equals(15.0));
 
-    expect(diffPoly[6].lat, equals(-5.0));
-    expect(diffPoly[6].lng, equals(-5.0));
+    expect(unPoly[6].lat, equals(-5.0));
+    expect(unPoly[6].lng, equals(-5.0));
 
-    expect(diffPoly[7].lat, equals(5.0));
-    expect(diffPoly[7].lng, equals(-5.0));
+    expect(unPoly[7].lat, equals(5.0));
+    expect(unPoly[7].lng, equals(-5.0));
   });
 
   test('polygon overlap cut across 2 - new right', () {
@@ -872,37 +872,37 @@ void main() {
       (lat: 5.0, lng: 15.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
-    var diffPoly = binary.pUnPolygons[0].pointsLatLng;
-    print(diffPoly);
+    var unPoly = binary.pUnPolygons[0].pointsLatLng;
+    print(unPoly);
 
-    expect(diffPoly.length, equals(8));
+    expect(unPoly.length, equals(8));
 
-    expect(diffPoly[0].lat, equals(0.0));
-    expect(diffPoly[0].lng, equals(0.0));
+    expect(unPoly[0].lat, equals(0.0));
+    expect(unPoly[0].lng, equals(0.0));
 
-    expect(diffPoly[1].lat, equals(5.0));
-    expect(diffPoly[1].lng, equals(0.0));
+    expect(unPoly[1].lat, equals(5.0));
+    expect(unPoly[1].lng, equals(0.0));
 
-    expect(diffPoly[2].lat, equals(5.0));
-    expect(diffPoly[2].lng, equals(-5.0));
+    expect(unPoly[2].lat, equals(5.0));
+    expect(unPoly[2].lng, equals(-5.0));
 
-    expect(diffPoly[3].lat, equals(15.0));
-    expect(diffPoly[3].lng, equals(-5.0));
+    expect(unPoly[3].lat, equals(15.0));
+    expect(unPoly[3].lng, equals(-5.0));
 
-    expect(diffPoly[4].lat, equals(15.0));
-    expect(diffPoly[4].lng, equals(15.0));
+    expect(unPoly[4].lat, equals(15.0));
+    expect(unPoly[4].lng, equals(15.0));
 
-    expect(diffPoly[5].lat, equals(5.0));
-    expect(diffPoly[5].lng, equals(15.0));
+    expect(unPoly[5].lat, equals(5.0));
+    expect(unPoly[5].lng, equals(15.0));
 
-    expect(diffPoly[6].lat, equals(5.0));
-    expect(diffPoly[6].lng, equals(10.0));
+    expect(unPoly[6].lat, equals(5.0));
+    expect(unPoly[6].lng, equals(10.0));
 
-    expect(diffPoly[7].lat, equals(0.0));
-    expect(diffPoly[7].lng, equals(10.0));
+    expect(unPoly[7].lat, equals(0.0));
+    expect(unPoly[7].lng, equals(10.0));
   });
 
   test('polygon edge touch 1 - new upper left', () {
@@ -919,37 +919,37 @@ void main() {
       (lat: -10.0, lng: 15.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
-    var diffPoly = binary.pUnPolygons[0].pointsLatLng;
-    print(diffPoly);
+    var unPoly = binary.pUnPolygons[0].pointsLatLng;
+    print(unPoly);
 
-    expect(diffPoly.length, equals(8));
+    expect(unPoly.length, equals(8));
 
-    expect(diffPoly[0].lat, equals(0.0));
-    expect(diffPoly[0].lng, equals(0.0));
+    expect(unPoly[0].lat, equals(0.0));
+    expect(unPoly[0].lng, equals(0.0));
 
-    expect(diffPoly[1].lat, equals(10.0));
-    expect(diffPoly[1].lng, equals(0.0));
+    expect(unPoly[1].lat, equals(10.0));
+    expect(unPoly[1].lng, equals(0.0));
 
-    expect(diffPoly[2].lat, equals(10.0));
-    expect(diffPoly[2].lng, equals(10.0));
+    expect(unPoly[2].lat, equals(10.0));
+    expect(unPoly[2].lng, equals(10.0));
 
-    expect(diffPoly[3].lat, equals(0.0));
-    expect(diffPoly[3].lng, equals(10.0));
+    expect(unPoly[3].lat, equals(0.0));
+    expect(unPoly[3].lng, equals(10.0));
 
-    expect(diffPoly[4].lat, equals(0.0));
-    expect(diffPoly[4].lng, equals(15.0));
+    expect(unPoly[4].lat, equals(0.0));
+    expect(unPoly[4].lng, equals(15.0));
 
-    expect(diffPoly[5].lat, equals(-10.0));
-    expect(diffPoly[5].lng, equals(15.0));
+    expect(unPoly[5].lat, equals(-10.0));
+    expect(unPoly[5].lng, equals(15.0));
 
-    expect(diffPoly[6].lat, equals(-10.0));
-    expect(diffPoly[6].lng, equals(5.0));
+    expect(unPoly[6].lat, equals(-10.0));
+    expect(unPoly[6].lng, equals(5.0));
 
-    expect(diffPoly[7].lat, equals(0.0));
-    expect(diffPoly[7].lng, equals(5.0));
+    expect(unPoly[7].lat, equals(0.0));
+    expect(unPoly[7].lng, equals(5.0));
   });
 
   test('polygon edge touch 2 - new lower right', () {
@@ -966,37 +966,37 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
-    var diffPoly = binary.pUnPolygons[0].pointsLatLng;
-    print(diffPoly);
+    var unPoly = binary.pUnPolygons[0].pointsLatLng;
+    print(unPoly);
 
-    expect(diffPoly.length, equals(8));
+    expect(unPoly.length, equals(8));
 
-    expect(diffPoly[0].lat, equals(-10.0));
-    expect(diffPoly[0].lng, equals(5.0));
+    expect(unPoly[0].lat, equals(-10.0));
+    expect(unPoly[0].lng, equals(5.0));
 
-    expect(diffPoly[1].lat, equals(0.0));
-    expect(diffPoly[1].lng, equals(5.0));
+    expect(unPoly[1].lat, equals(0.0));
+    expect(unPoly[1].lng, equals(5.0));
 
-    expect(diffPoly[2].lat, equals(0.0));
-    expect(diffPoly[2].lng, equals(0.0));
+    expect(unPoly[2].lat, equals(0.0));
+    expect(unPoly[2].lng, equals(0.0));
 
-    expect(diffPoly[3].lat, equals(10.0));
-    expect(diffPoly[3].lng, equals(0.0));
+    expect(unPoly[3].lat, equals(10.0));
+    expect(unPoly[3].lng, equals(0.0));
 
-    expect(diffPoly[4].lat, equals(10.0));
-    expect(diffPoly[4].lng, equals(10.0));
+    expect(unPoly[4].lat, equals(10.0));
+    expect(unPoly[4].lng, equals(10.0));
 
-    expect(diffPoly[5].lat, equals(0.0));
-    expect(diffPoly[5].lng, equals(10.0));
+    expect(unPoly[5].lat, equals(0.0));
+    expect(unPoly[5].lng, equals(10.0));
 
-    expect(diffPoly[6].lat, equals(0.0));
-    expect(diffPoly[6].lng, equals(15.0));
+    expect(unPoly[6].lat, equals(0.0));
+    expect(unPoly[6].lng, equals(15.0));
 
-    expect(diffPoly[7].lat, equals(-10.0));
-    expect(diffPoly[7].lng, equals(15.0));
+    expect(unPoly[7].lat, equals(-10.0));
+    expect(unPoly[7].lng, equals(15.0));
   });
 
   //test failed
@@ -1014,42 +1014,42 @@ void main() {
       (lat: 10.0, lng: 20.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
     binary.pUnPolygons[1].getPolygonLatLng();
     expect(binary.pUnPolygons.length, equals(2));
-    var diffPoly1 = binary.pUnPolygons[0].pointsLatLng;
-    var diffPoly2 = binary.pUnPolygons[1].pointsLatLng;
-    print(diffPoly1);
-    print(diffPoly2);
+    var unPoly1 = binary.pUnPolygons[0].pointsLatLng;
+    var unPoly2 = binary.pUnPolygons[1].pointsLatLng;
+    print(unPoly1);
+    print(unPoly2);
 
-    expect(diffPoly1.length, equals(4));
-    expect(diffPoly2.length, equals(4));
+    expect(unPoly1.length, equals(4));
+    expect(unPoly2.length, equals(4));
 
-    expect(diffPoly1[0].lat, equals(0.0));
-    expect(diffPoly1[0].lng, equals(0.0));
+    expect(unPoly1[0].lat, equals(0.0));
+    expect(unPoly1[0].lng, equals(0.0));
 
-    expect(diffPoly1[1].lat, equals(10.0));
-    expect(diffPoly1[1].lng, equals(0.0));
+    expect(unPoly1[1].lat, equals(10.0));
+    expect(unPoly1[1].lng, equals(0.0));
 
-    expect(diffPoly1[2].lat, equals(10.0));
-    expect(diffPoly1[2].lng, equals(10.0));
+    expect(unPoly1[2].lat, equals(10.0));
+    expect(unPoly1[2].lng, equals(10.0));
 
-    expect(diffPoly1[3].lat, equals(0.0));
-    expect(diffPoly1[3].lng, equals(10.0));
+    expect(unPoly1[3].lat, equals(0.0));
+    expect(unPoly1[3].lng, equals(10.0));
 
-    expect(diffPoly2[0].lat, equals(10.0));
-    expect(diffPoly2[0].lng, equals(10.0));
+    expect(unPoly2[0].lat, equals(10.0));
+    expect(unPoly2[0].lng, equals(10.0));
 
-    expect(diffPoly2[1].lat, equals(20.0));
-    expect(diffPoly2[1].lng, equals(10.0));
+    expect(unPoly2[1].lat, equals(20.0));
+    expect(unPoly2[1].lng, equals(10.0));
 
-    expect(diffPoly2[2].lat, equals(20.0));
-    expect(diffPoly2[2].lng, equals(20.0));
+    expect(unPoly2[2].lat, equals(20.0));
+    expect(unPoly2[2].lng, equals(20.0));
 
-    expect(diffPoly2[3].lat, equals(10.0));
-    expect(diffPoly2[3].lng, equals(20.0));
+    expect(unPoly2[3].lat, equals(10.0));
+    expect(unPoly2[3].lng, equals(20.0));
   });
 
   test('polygon corner touch - new lower left', () {
@@ -1066,42 +1066,42 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
     binary.pUnPolygons[1].getPolygonLatLng();
     expect(binary.pUnPolygons.length, equals(2));
-    var diffPoly2 = binary.pUnPolygons[0].pointsLatLng;
-    var diffPoly1 = binary.pUnPolygons[1].pointsLatLng;
-    print(diffPoly1);
-    print(diffPoly2);
+    var unPoly2 = binary.pUnPolygons[0].pointsLatLng;
+    var unPoly1 = binary.pUnPolygons[1].pointsLatLng;
+    print(unPoly1);
+    print(unPoly2);
 
-    expect(diffPoly1.length, equals(4));
-    expect(diffPoly2.length, equals(4));
+    expect(unPoly1.length, equals(4));
+    expect(unPoly2.length, equals(4));
 
-    expect(diffPoly1[0].lat, equals(0.0));
-    expect(diffPoly1[0].lng, equals(0.0));
+    expect(unPoly1[0].lat, equals(0.0));
+    expect(unPoly1[0].lng, equals(0.0));
 
-    expect(diffPoly1[1].lat, equals(10.0));
-    expect(diffPoly1[1].lng, equals(0.0));
+    expect(unPoly1[1].lat, equals(10.0));
+    expect(unPoly1[1].lng, equals(0.0));
 
-    expect(diffPoly1[2].lat, equals(10.0));
-    expect(diffPoly1[2].lng, equals(10.0));
+    expect(unPoly1[2].lat, equals(10.0));
+    expect(unPoly1[2].lng, equals(10.0));
 
-    expect(diffPoly1[3].lat, equals(0.0));
-    expect(diffPoly1[3].lng, equals(10.0));
+    expect(unPoly1[3].lat, equals(0.0));
+    expect(unPoly1[3].lng, equals(10.0));
 
-    expect(diffPoly2[0].lat, equals(10.0));
-    expect(diffPoly2[0].lng, equals(10.0));
+    expect(unPoly2[0].lat, equals(10.0));
+    expect(unPoly2[0].lng, equals(10.0));
 
-    expect(diffPoly2[1].lat, equals(20.0));
-    expect(diffPoly2[1].lng, equals(10.0));
+    expect(unPoly2[1].lat, equals(20.0));
+    expect(unPoly2[1].lng, equals(10.0));
 
-    expect(diffPoly2[2].lat, equals(20.0));
-    expect(diffPoly2[2].lng, equals(20.0));
+    expect(unPoly2[2].lat, equals(20.0));
+    expect(unPoly2[2].lng, equals(20.0));
 
-    expect(diffPoly2[3].lat, equals(10.0));
-    expect(diffPoly2[3].lng, equals(20.0));
+    expect(unPoly2[3].lat, equals(10.0));
+    expect(unPoly2[3].lng, equals(20.0));
   });
 
   test('polygon overlap 1', () {
@@ -1126,50 +1126,50 @@ void main() {
       (lat: 5.0, lng: 15.0),
       (lat: -5.0, lng: 15.0),
     ];
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     expect(binary.pUnPolygons.length, equals(1));
     binary.pUnPolygons[0].getPolygonLatLng();
-    var diffPoly = binary.pUnPolygons[0].pointsLatLng;
-    print(diffPoly);
+    var unPoly = binary.pUnPolygons[0].pointsLatLng;
+    print(unPoly);
 
-    expect(diffPoly.length, equals(12));
+    expect(unPoly.length, equals(12));
 
-    expect(diffPoly[0].lat, equals(5.0));
-    expect(diffPoly[0].lng, equals(-0.0));
+    expect(unPoly[0].lat, equals(5.0));
+    expect(unPoly[0].lng, equals(-0.0));
 
-    expect(diffPoly[1].lat, equals(7.0));
-    expect(diffPoly[1].lng, equals(0.0));
+    expect(unPoly[1].lat, equals(7.0));
+    expect(unPoly[1].lng, equals(0.0));
 
-    expect(diffPoly[2].lat, equals(7.0));
-    expect(diffPoly[2].lng, equals(-5.0));
+    expect(unPoly[2].lat, equals(7.0));
+    expect(unPoly[2].lng, equals(-5.0));
 
-    expect(diffPoly[3].lat, equals(15.0));
-    expect(diffPoly[3].lng, equals(-5.0));
+    expect(unPoly[3].lat, equals(15.0));
+    expect(unPoly[3].lng, equals(-5.0));
 
-    expect(diffPoly[4].lat, equals(15.0));
-    expect(diffPoly[4].lng, equals(15.0));
+    expect(unPoly[4].lat, equals(15.0));
+    expect(unPoly[4].lng, equals(15.0));
 
-    expect(diffPoly[5].lat, equals(7.0));
-    expect(diffPoly[5].lng, equals(15.0));
+    expect(unPoly[5].lat, equals(7.0));
+    expect(unPoly[5].lng, equals(15.0));
 
-    expect(diffPoly[6].lat, equals(7.0));
-    expect(diffPoly[6].lng, equals(10.0));
+    expect(unPoly[6].lat, equals(7.0));
+    expect(unPoly[6].lng, equals(10.0));
 
-    expect(diffPoly[7].lat, equals(5.0));
-    expect(diffPoly[7].lng, equals(10.0));
+    expect(unPoly[7].lat, equals(5.0));
+    expect(unPoly[7].lng, equals(10.0));
 
-    expect(diffPoly[8].lat, equals(5.0));
-    expect(diffPoly[8].lng, equals(15.0));
+    expect(unPoly[8].lat, equals(5.0));
+    expect(unPoly[8].lng, equals(15.0));
 
-    expect(diffPoly[9].lat, equals(-5.0));
-    expect(diffPoly[9].lng, equals(15.0));
+    expect(unPoly[9].lat, equals(-5.0));
+    expect(unPoly[9].lng, equals(15.0));
 
-    expect(diffPoly[10].lat, equals(-5.0));
-    expect(diffPoly[10].lng, equals(-5.0));
+    expect(unPoly[10].lat, equals(-5.0));
+    expect(unPoly[10].lng, equals(-5.0));
 
-    expect(diffPoly[11].lat, equals(5.0));
-    expect(diffPoly[11].lng, equals(-5.0));
+    expect(unPoly[11].lat, equals(5.0));
+    expect(unPoly[11].lng, equals(-5.0));
   });
 
   test('polygon overlap 2', () {
@@ -1194,49 +1194,49 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
-    var diffPoly = binary.pUnPolygons[0].pointsLatLng;
-    print(diffPoly);
+    var unPoly = binary.pUnPolygons[0].pointsLatLng;
+    print(unPoly);
 
-    expect(diffPoly.length, equals(12));
+    expect(unPoly.length, equals(12));
 
-    expect(diffPoly[0].lat, equals(-5.0));
-    expect(diffPoly[0].lng, equals(-5.0));
+    expect(unPoly[0].lat, equals(-5.0));
+    expect(unPoly[0].lng, equals(-5.0));
 
-    expect(diffPoly[1].lat, equals(5.0));
-    expect(diffPoly[1].lng, equals(-5.0));
+    expect(unPoly[1].lat, equals(5.0));
+    expect(unPoly[1].lng, equals(-5.0));
 
-    expect(diffPoly[2].lat, equals(5.0));
-    expect(diffPoly[2].lng, equals(0.0));
+    expect(unPoly[2].lat, equals(5.0));
+    expect(unPoly[2].lng, equals(0.0));
 
-    expect(diffPoly[3].lat, equals(7.0));
-    expect(diffPoly[3].lng, equals(0.0));
+    expect(unPoly[3].lat, equals(7.0));
+    expect(unPoly[3].lng, equals(0.0));
 
-    expect(diffPoly[4].lat, equals(7.0));
-    expect(diffPoly[4].lng, equals(-5.0));
+    expect(unPoly[4].lat, equals(7.0));
+    expect(unPoly[4].lng, equals(-5.0));
 
-    expect(diffPoly[5].lat, equals(15.0));
-    expect(diffPoly[5].lng, equals(-5.0));
+    expect(unPoly[5].lat, equals(15.0));
+    expect(unPoly[5].lng, equals(-5.0));
 
-    expect(diffPoly[6].lat, equals(15.0));
-    expect(diffPoly[6].lng, equals(15.0));
+    expect(unPoly[6].lat, equals(15.0));
+    expect(unPoly[6].lng, equals(15.0));
 
-    expect(diffPoly[7].lat, equals(7.0));
-    expect(diffPoly[7].lng, equals(15.0));
+    expect(unPoly[7].lat, equals(7.0));
+    expect(unPoly[7].lng, equals(15.0));
 
-    expect(diffPoly[8].lat, equals(7.0));
-    expect(diffPoly[8].lng, equals(10.0));
+    expect(unPoly[8].lat, equals(7.0));
+    expect(unPoly[8].lng, equals(10.0));
 
-    expect(diffPoly[9].lat, equals(5.0));
-    expect(diffPoly[9].lng, equals(10.0));
+    expect(unPoly[9].lat, equals(5.0));
+    expect(unPoly[9].lng, equals(10.0));
 
-    expect(diffPoly[10].lat, equals(5.0));
-    expect(diffPoly[10].lng, equals(15.0));
+    expect(unPoly[10].lat, equals(5.0));
+    expect(unPoly[10].lng, equals(15.0));
 
-    expect(diffPoly[11].lat, equals(-5.0));
-    expect(diffPoly[11].lng, equals(15.0));
+    expect(unPoly[11].lat, equals(-5.0));
+    expect(unPoly[11].lng, equals(15.0));
   });
 
   test('original partitioned, difference new polygon points completely outside, overlap', () {
@@ -1253,50 +1253,50 @@ void main() {
       (lat: 3.0, lng: -5.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     expect(binary.pUnPolygons.length, equals(1));
     binary.pUnPolygons[0].getPolygonLatLng();
-    var diffPoly = binary.pUnPolygons[0].pointsLatLng;
-    print(diffPoly);
+    var unPoly = binary.pUnPolygons[0].pointsLatLng;
+    print(unPoly);
 
-    expect(diffPoly.length, equals(12));
+    expect(unPoly.length, equals(12));
 
-    expect(diffPoly[0].lat, equals(0.0));
-    expect(diffPoly[0].lng, equals(0.0));
+    expect(unPoly[0].lat, equals(0.0));
+    expect(unPoly[0].lng, equals(0.0));
 
-    expect(diffPoly[1].lat, equals(3.0));
-    expect(diffPoly[1].lng, equals(-0.0));
+    expect(unPoly[1].lat, equals(3.0));
+    expect(unPoly[1].lng, equals(-0.0));
 
-    expect(diffPoly[2].lat, equals(3.0));
-    expect(diffPoly[2].lng, equals(-5.0));
+    expect(unPoly[2].lat, equals(3.0));
+    expect(unPoly[2].lng, equals(-5.0));
 
-    expect(diffPoly[3].lat, equals(6.0));
-    expect(diffPoly[3].lng, equals(-5.0));
+    expect(unPoly[3].lat, equals(6.0));
+    expect(unPoly[3].lng, equals(-5.0));
 
-    expect(diffPoly[4].lat, equals(6.0));
-    expect(diffPoly[4].lng, equals(-0.0));
+    expect(unPoly[4].lat, equals(6.0));
+    expect(unPoly[4].lng, equals(-0.0));
 
-    expect(diffPoly[5].lat, equals(10.0));
-    expect(diffPoly[5].lng, equals(0.0));
+    expect(unPoly[5].lat, equals(10.0));
+    expect(unPoly[5].lng, equals(0.0));
 
-    expect(diffPoly[6].lat, equals(10.0));
-    expect(diffPoly[6].lng, equals(10.0));
+    expect(unPoly[6].lat, equals(10.0));
+    expect(unPoly[6].lng, equals(10.0));
 
-    expect(diffPoly[7].lat, equals(6.0));
-    expect(diffPoly[7].lng, equals(10.0));
+    expect(unPoly[7].lat, equals(6.0));
+    expect(unPoly[7].lng, equals(10.0));
 
-    expect(diffPoly[8].lat, equals(6.0));
-    expect(diffPoly[8].lng, equals(15.0));
+    expect(unPoly[8].lat, equals(6.0));
+    expect(unPoly[8].lng, equals(15.0));
 
-    expect(diffPoly[9].lat, equals(3.0));
-    expect(diffPoly[9].lng, equals(15.0));
+    expect(unPoly[9].lat, equals(3.0));
+    expect(unPoly[9].lng, equals(15.0));
 
-    expect(diffPoly[10].lat, equals(3.0));
-    expect(diffPoly[10].lng, equals(10.0));
+    expect(unPoly[10].lat, equals(3.0));
+    expect(unPoly[10].lng, equals(10.0));
 
-    expect(diffPoly[11].lat, equals(0.0));
-    expect(diffPoly[11].lng, equals(10.0));
+    expect(unPoly[11].lat, equals(0.0));
+    expect(unPoly[11].lng, equals(10.0));
   });
 
   test('original partitioned, difference new polygon points completely outside, overlap', () {
@@ -1314,48 +1314,48 @@ void main() {
       (lat: 0.0, lng: 0.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
-    var diffPoly = binary.pUnPolygons[0].pointsLatLng;
-    print(diffPoly);
+    var unPoly = binary.pUnPolygons[0].pointsLatLng;
+    print(unPoly);
 
-    expect(diffPoly.length, equals(12));
+    expect(unPoly.length, equals(12));
 
-    expect(diffPoly[0].lat, equals(3.0));
-    expect(diffPoly[0].lng, equals(-5.0));
+    expect(unPoly[0].lat, equals(3.0));
+    expect(unPoly[0].lng, equals(-5.0));
 
-    expect(diffPoly[1].lat, equals(6.0));
-    expect(diffPoly[1].lng, equals(-5.0));
+    expect(unPoly[1].lat, equals(6.0));
+    expect(unPoly[1].lng, equals(-5.0));
 
-    expect(diffPoly[2].lat, equals(6.0));
-    expect(diffPoly[2].lng, equals(0.0));
+    expect(unPoly[2].lat, equals(6.0));
+    expect(unPoly[2].lng, equals(0.0));
 
-    expect(diffPoly[3].lat, equals(10.0));
-    expect(diffPoly[3].lng, equals(0.0));
+    expect(unPoly[3].lat, equals(10.0));
+    expect(unPoly[3].lng, equals(0.0));
 
-    expect(diffPoly[4].lat, equals(10.0));
-    expect(diffPoly[4].lng, equals(10.0));
+    expect(unPoly[4].lat, equals(10.0));
+    expect(unPoly[4].lng, equals(10.0));
 
-    expect(diffPoly[5].lat, equals(6.0));
-    expect(diffPoly[5].lng, equals(10.0));
+    expect(unPoly[5].lat, equals(6.0));
+    expect(unPoly[5].lng, equals(10.0));
 
-    expect(diffPoly[6].lat, equals(6.0));
-    expect(diffPoly[6].lng, equals(15.0));
+    expect(unPoly[6].lat, equals(6.0));
+    expect(unPoly[6].lng, equals(15.0));
 
-    expect(diffPoly[7].lat, equals(3.0));
-    expect(diffPoly[7].lng, equals(15.0));
+    expect(unPoly[7].lat, equals(3.0));
+    expect(unPoly[7].lng, equals(15.0));
 
-    expect(diffPoly[8].lat, equals(3.0));
-    expect(diffPoly[8].lng, equals(10.0));
+    expect(unPoly[8].lat, equals(3.0));
+    expect(unPoly[8].lng, equals(10.0));
 
-    expect(diffPoly[9].lat, equals(0.0));
-    expect(diffPoly[9].lng, equals(10.0));
+    expect(unPoly[9].lat, equals(0.0));
+    expect(unPoly[9].lng, equals(10.0));
 
-    expect(diffPoly[10].lat, equals(0.0));
-    expect(diffPoly[10].lng, equals(0.0));
+    expect(unPoly[10].lat, equals(0.0));
+    expect(unPoly[10].lng, equals(0.0));
 
-    expect(diffPoly[11].lat, equals(3.0));
-    expect(diffPoly[11].lng, equals(0.0));
+    expect(unPoly[11].lat, equals(3.0));
+    expect(unPoly[11].lng, equals(0.0));
   });
 }

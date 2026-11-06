@@ -82,13 +82,12 @@ class VPolygon {
             lng: point.lng,
           );
           try {
-            var rightInterectionPoint = VPolIntPoint()
-                .getIntersectionPointLatLng(
-                  point,
-                  rightSidePoint,
-                  currentPoint,
-                  nextPoint,
-                );
+            var rightInterectionPoint = VPolIntPoint.getIntersectionPointLatLng(
+              point,
+              rightSidePoint,
+              currentPoint,
+              nextPoint,
+            );
 
             double latDiff = rightInterectionPoint.lat - point.lat;
             if (latDiff > precision) {
@@ -114,21 +113,22 @@ class VPolygon {
     return false;
   }
 
-  int isPointInsidePolygonEdge(
+  static int isPointInsidePolygonEdge(
     ({double lat, double lng}) point,
     ({double lat, double lng}) edgeStart1,
-    ({double lat, double lng}) edgeEnd1,
-  ) {
+    ({double lat, double lng}) edgeEnd1, {
+    double myPrecision = 0.000000001,
+  }) {
     var (x1, y1) = (edgeStart1.lat, edgeStart1.lng);
     var (x2, y2) = (edgeEnd1.lat, edgeEnd1.lng);
     var (xp, yp) = (point.lat, point.lng);
     double edgXDiff = x2 - x1;
     double edgYDiff = y2 - y1;
-    if (edgXDiff.abs() < precision) {
+    if (edgXDiff.abs() < myPrecision) {
       // Vertical line case
       double pointXDiff = xp - x1;
       //double pointYDiff = yp - y1;
-      if (pointXDiff.abs() < precision) {
+      if (pointXDiff.abs() < myPrecision) {
         if ((y1 <= yp && yp <= y2) || (y2 <= yp && yp <= y1)) {
           return 0; // Point is on the edge
         }
@@ -143,7 +143,7 @@ class VPolygon {
     double cIntercept = y1 - mSlope * x1;
     double yOnLine = mSlope * xp + cIntercept;
     double yDiff = yp - yOnLine;
-    if (yDiff.abs() < precision) {
+    if (yDiff.abs() < myPrecision) {
       if ((x1 <= xp && xp <= x2) || (x2 <= xp && xp <= x1)) {
         return 0; // Point is inside the polygon
       }
@@ -154,7 +154,7 @@ class VPolygon {
     return -1;
   }
 
-  ({double latmin, double latmax, double lngmin, double lngmax})
+  static ({double latmin, double latmax, double lngmin, double lngmax})
   getPolygonBounds(List<({double lat, double lng})> polygon) {
     double latmin = double.infinity;
     double latmax = double.negativeInfinity;
@@ -169,7 +169,7 @@ class VPolygon {
     return (latmin: latmin, latmax: latmax, lngmin: lngmin, lngmax: lngmax);
   }
 
-  bool doPolygonsIntersectExact(
+  static bool doPolygonsIntersectExact(
     List<({double lat, double lng})> polygon1,
     List<({double lat, double lng})> polygon2,
   ) {
@@ -182,7 +182,7 @@ class VPolygon {
     return false;
   }
 
-  bool doPolygonsIntersectWithBounds(
+  static bool doPolygonsIntersectWithBounds(
     List<({double lat, double lng})> polygon1,
     List<({double lat, double lng})> polygon2,
   ) {
@@ -196,7 +196,7 @@ class VPolygon {
   }
 
   //Fast and exact polygon intersection check. First checks bounding boxes, then checks exact intersection.
-  bool doPolygonsIntersectExactFast(
+  static bool doPolygonsIntersectExactFast(
     List<({double lat, double lng})> polygon1,
     List<({double lat, double lng})> polygon2,
   ) {

@@ -31,8 +31,7 @@ void main() {
     ({double lat, double lng}) edgeStart = (lat: 0.0, lng: 0.0);
     ({double lat, double lng}) edgeEnd = (lat: 0.0, lng: 10.0);
     ({double lat, double lng}) point = (lat: 5.0, lng: 5.0);
-    VPolygon vPolygon = VPolygon();
-    int result = vPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
+    int result = VPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
     expect(result, equals(-1));
   });
 
@@ -45,8 +44,7 @@ void main() {
     points.add(point);
     points.add(edgeStart);
     points.add(edgeEnd);
-    VPolygon vPolygon = VPolygon();
-    int result = vPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
+    int result = VPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
     expect(result, equals(-1));
   });
 
@@ -54,8 +52,7 @@ void main() {
     ({double lat, double lng}) edgeStart = (lat: 0.0, lng: 0.0);
     ({double lat, double lng}) edgeEnd = (lat: 0.0, lng: 10.0);
     ({double lat, double lng}) point = (lat: -5.0, lng: 5.0);
-    VPolygon vPolygon = VPolygon();
-    int result = vPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
+    int result = VPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
     expect(result, equals(1));
   });
 
@@ -63,8 +60,7 @@ void main() {
     ({double lat, double lng}) edgeStart = (lat: 10.0, lng: 0.0);
     ({double lat, double lng}) edgeEnd = (lat: 10.0, lng: 10.0);
     ({double lat, double lng}) point = (lat: 15.0, lng: 0.0);
-    VPolygon vPolygon = VPolygon();
-    int result = vPolygon.isPointInsidePolygonEdge(point, edgeEnd, edgeStart);
+    int result = VPolygon.isPointInsidePolygonEdge(point, edgeEnd, edgeStart);
     expect(result, equals(1));
   });
 
@@ -74,9 +70,8 @@ void main() {
       ({double lat, double lng}) edgeStart = (lat: 0.0, lng: 0.0);
       ({double lat, double lng}) edgeEnd = (lat: 0.0, lng: 10.0);
       ({double lat, double lng}) point = (lat: 0.0, lng: 5.0);
-      VPolygon vPolygon = VPolygon();
-      int result = vPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
-      int result1 = vPolygon.isPointInsidePolygonEdge(
+      int result = VPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
+      int result1 = VPolygon.isPointInsidePolygonEdge(
         point,
         edgeEnd,
         edgeStart,
@@ -90,9 +85,8 @@ void main() {
     ({double lat, double lng}) edgeStart = (lat: 0.0, lng: 0.0);
     ({double lat, double lng}) edgeEnd = (lat: 0.0, lng: 10.0);
     ({double lat, double lng}) point = (lat: 0.0, lng: 15.0);
-    VPolygon vPolygon = VPolygon();
-    int result = vPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
-    int result1 = vPolygon.isPointInsidePolygonEdge(point, edgeEnd, edgeStart);
+    int result = VPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
+    int result1 = VPolygon.isPointInsidePolygonEdge(point, edgeEnd, edgeStart);
     expect(result, equals(2));
     expect(result1, equals(2));
   });
@@ -101,8 +95,7 @@ void main() {
     ({double lat, double lng}) edgeStart = (lat: 0.0, lng: 0.0);
     ({double lat, double lng}) edgeEnd = (lat: 10.0, lng: 0.0);
     ({double lat, double lng}) point = (lat: 0.0, lng: 5.0);
-    VPolygon vPolygon = VPolygon();
-    int result = vPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
+    int result = VPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
     expect(result, equals(1));
   });
 
@@ -110,8 +103,7 @@ void main() {
     ({double lat, double lng}) edgeStart = (lat: 0.0, lng: 0.0);
     ({double lat, double lng}) edgeEnd = (lat: 10.0, lng: 0.0);
     ({double lat, double lng}) point = (lat: 5.0, lng: -5.0);
-    VPolygon vPolygon = VPolygon();
-    int result = vPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
+    int result = VPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
     expect(result, equals(-1));
   });
 
@@ -119,9 +111,8 @@ void main() {
     ({double lat, double lng}) edgeStart = (lat: 0.0, lng: 0.0);
     ({double lat, double lng}) edgeEnd = (lat: 10.0, lng: 0.0);
     ({double lat, double lng}) point = (lat: 5.0, lng: 0.0);
-    VPolygon vPolygon = VPolygon();
-    int result = vPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
-    int result1 = vPolygon.isPointInsidePolygonEdge(point, edgeEnd, edgeStart);
+    int result = VPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
+    int result1 = VPolygon.isPointInsidePolygonEdge(point, edgeEnd, edgeStart);
     expect(result, equals(0));
     expect(result1, equals(0));
   });
@@ -130,11 +121,10 @@ void main() {
     ({double lat, double lng}) edgeStart = (lat: 0.0, lng: 0.0);
     ({double lat, double lng}) edgeEnd = (lat: 10.0, lng: 0.0);
     ({double lat, double lng}) point = (lat: 15.0, lng: 0.0);
-    VPolygon vPolygon = VPolygon();
-    int result = vPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
-    int result1 = vPolygon.isPointInsidePolygonEdge(point, edgeEnd, edgeStart);
+    int result = VPolygon.isPointInsidePolygonEdge(point, edgeStart, edgeEnd);
+    int result1 = VPolygon.isPointInsidePolygonEdge(point, edgeEnd, edgeStart);
     expect(result, equals(2));
-    expect(result, equals(2));
+    expect(result1, equals(2));
   });
 
   test('outside point outside polygon counter clockwise', () {
@@ -287,8 +277,7 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolygon polygon = VPolygon();
-    var result = polygon.doPolygonsIntersectWithBounds(
+    var result = VPolygon.doPolygonsIntersectWithBounds(
       polygonOriginal,
       polygonNew,
     );
@@ -310,8 +299,7 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolygon polygon = VPolygon();
-    var result = polygon.doPolygonsIntersectWithBounds(
+    var result = VPolygon.doPolygonsIntersectWithBounds(
       polygonOriginal,
       polygonNew,
     );
@@ -333,8 +321,7 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolygon polygon = VPolygon();
-    var result = polygon.doPolygonsIntersectExact(polygonOriginal, polygonNew);
+    var result = VPolygon.doPolygonsIntersectExact(polygonOriginal, polygonNew);
     print(result);
     expect(true, result);
   });
@@ -353,8 +340,7 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolygon polygon = VPolygon();
-    var result = polygon.doPolygonsIntersectExact(polygonOriginal, polygonNew);
+    var result = VPolygon.doPolygonsIntersectExact(polygonOriginal, polygonNew);
     print(result);
     expect(false, result);
   });
@@ -373,8 +359,7 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolygon polygon = VPolygon();
-    var result = polygon.doPolygonsIntersectExactFast(
+    var result = VPolygon.doPolygonsIntersectExactFast(
       polygonOriginal,
       polygonNew,
     );
@@ -396,8 +381,7 @@ void main() {
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolygon polygon = VPolygon();
-    var result = polygon.doPolygonsIntersectExactFast(
+    var result = VPolygon.doPolygonsIntersectExactFast(
       polygonOriginal,
       polygonNew,
     );
@@ -419,8 +403,7 @@ void main() {
       (lat: 10.0, lng: 0.0),
     ];
 
-    VPolygon polygon = VPolygon();
-    var result = polygon.doPolygonsIntersectExactFast(
+    var result = VPolygon.doPolygonsIntersectExactFast(
       polygonOriginal,
       polygonNew,
     );
@@ -442,8 +425,7 @@ void main() {
       (lat: 10.0, lng: 0.0),
     ];
 
-    VPolygon polygon = VPolygon();
-    var result = polygon.doPolygonsIntersectWithBounds(
+    var result = VPolygon.doPolygonsIntersectWithBounds(
       polygonOriginal,
       polygonNew,
     );
@@ -465,8 +447,7 @@ void main() {
       (lat: 10.0, lng: 0.0),
     ];
 
-    VPolygon polygon = VPolygon();
-    var result = polygon.doPolygonsIntersectExact(polygonOriginal, polygonNew);
+    var result = VPolygon.doPolygonsIntersectExact(polygonOriginal, polygonNew);
     print(result);
     expect(false, result);
   });

@@ -1,3 +1,4 @@
+import 'package:veevin_maps_polygon/point.dart';
 import 'package:veevin_maps_polygon/pol_int_point.dart';
 import 'package:veevin_maps_polygon/pol_point.dart';
 import 'package:veevin_maps_polygon/polygon.dart';
@@ -10,7 +11,7 @@ class BoundarySegment {
 }
 
 class VPolBinary {
-  final precision = 0.000000001;
+  double precision = 0.000000001;
   late VPolygon pA, pB;
   late VPolygon pDiff, pUn;
 
@@ -18,11 +19,19 @@ class VPolBinary {
   List<VPolygon> pDiffPolygons = [];
   List<VPolygon> pUnPolygons = [];
 
-  VPolBinary(
+  VPolBinary() {}
+
+  VPolBinary.runInit(
     List<({double lat, double lng})> pointsLatLngA,
-    List<({double lat, double lng})> pointsLatLngB,
-  ) {
+    List<({double lat, double lng})> pointsLatLngB, {
+    double myPrecision = 0.000000001,
+  }) {
+    setPrecision(myPrecision);
     runInit(pointsLatLngA, pointsLatLngB);
+  }
+
+  void setPrecision(double myPrecision) {
+    precision = myPrecision;
   }
 
   void runInit(
@@ -51,7 +60,7 @@ class VPolBinary {
       final aEdge = pA.points[i].next;
       for (int j = 0; j < pB.points.length; j++) {
         final bEdge = pB.points[j].next;
-        VPolIntPoint().getIntersectionPoint(aEdge, bEdge);
+        VPolIntPoint.getIntersectionPoint(aEdge, bEdge);
       }
     }
   }
@@ -86,16 +95,16 @@ class VPolBinary {
                 (lat: intersection.lat, lng: intersection.lng),
             end,
           ]..sort(
-            (a, b) => _distanceSquared(
+            (a, b) => VPoint.getDistSquare(
               start,
               a,
-            ).compareTo(_distanceSquared(start, b)),
+            ).compareTo(VPoint.getDistSquare(start, b)),
           );
 
       final orderedPoints = <({double lat, double lng})>[];
       for (final splitPoint in splitPoints) {
         if (orderedPoints.isEmpty ||
-            !_samePoint(orderedPoints.last, splitPoint)) {
+            !VPoint.samePoint(orderedPoints.last, splitPoint)) {
           orderedPoints.add(splitPoint);
         }
       }
@@ -137,7 +146,7 @@ class VPolBinary {
       while (!usedSegments[currentSegmentIndex]) {
         final segment = segments[currentSegmentIndex];
         usedSegments[currentSegmentIndex] = true;
-        if (_samePoint(segment.end, ring.first)) {
+        if (VPoint.samePoint(segment.end, ring.first)) {
           isClosed = true;
           break;
         }
@@ -150,7 +159,7 @@ class VPolBinary {
           candidateIndex++
         ) {
           if (!usedSegments[candidateIndex] &&
-              _samePoint(segments[candidateIndex].start, segment.end)) {
+              VPoint.samePoint(segments[candidateIndex].start, segment.end)) {
             currentSegmentIndex = candidateIndex;
             break;
           }
@@ -169,23 +178,6 @@ class VPolBinary {
     }
 
     return polygons;
-  }
-
-  double _distanceSquared(
-    ({double lat, double lng}) first,
-    ({double lat, double lng}) second,
-  ) {
-    final latDifference = first.lat - second.lat;
-    final lngDifference = first.lng - second.lng;
-    return latDifference * latDifference + lngDifference * lngDifference;
-  }
-
-  bool _samePoint(
-    ({double lat, double lng}) first,
-    ({double lat, double lng}) second,
-  ) {
-    return (first.lat - second.lat).abs() <= precision &&
-        (first.lng - second.lng).abs() <= precision;
   }
 
   VPolygon _polygonFromRing(List<({double lat, double lng})> ring) {

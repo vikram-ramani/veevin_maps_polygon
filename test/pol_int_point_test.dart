@@ -25,7 +25,7 @@ void main() {
     edgeB.start.lng = p3.lng;
     edgeB.end.lat = p4.lat;
     edgeB.end.lng = p4.lng;
-    var intersectionPoint = vPolygon.getIntersectionPoint(edgeA, edgeB);
+    var intersectionPoint = VPolIntPoint.getIntersectionPoint(edgeA, edgeB);
     expect(intersectionPoint?.lat, equals(5.0));
     expect(intersectionPoint?.lng, equals(0.0));
   });
@@ -52,7 +52,7 @@ void main() {
     edgeB.end.lat = p4.lat;
     edgeB.end.lng = p4.lng;
     try {
-      var intersectionPoint = vPolygon.getIntersectionPoint(edgeA, edgeB);
+      var intersectionPoint = VPolIntPoint.getIntersectionPoint(edgeA, edgeB);
       expect(true, false);
     } catch (e) {
       expect(true, true);
@@ -81,7 +81,7 @@ void main() {
     edgeB.start.lng = p3.lng;
     edgeB.end.lat = p4.lat;
     edgeB.end.lng = p4.lng;
-    var intersectionPoint = vPolygon.getIntersectionPoint(edgeA, edgeB);
+    var intersectionPoint = VPolIntPoint.getIntersectionPoint(edgeA, edgeB);
     expect(intersectionPoint?.lat, closeTo(5.0, 0.000001));
     expect(intersectionPoint?.lng, closeTo(5.0, 0.000001));
   });

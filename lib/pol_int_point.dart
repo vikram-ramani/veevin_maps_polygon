@@ -4,13 +4,37 @@ import 'package:veevin_maps_polygon/polygon.dart';
 import 'pol_edge.dart';
 
 class VPolIntPoint extends VPoint {
-  VPolIntPoint() {
-    precision = 0.000000001;
-  }
   late VPolEdge edgeA, edgeB;
   bool isInside = false;
 
-  ({double lat, double lng}) getIntersectionPointLatLng(
+  VPolIntPoint() {
+    precision = 0.000000001;
+  }
+
+  VPolIntPoint.withPrecision(double myPrecision) {
+    precision = myPrecision;
+  }
+
+  VPolIntPoint.initFromEdges(VPolEdge edgeA, VPolEdge edgeB) {
+    precision = 0.000000001;
+    setIntersectionPoint(edgeA, edgeB);
+  }
+
+  void setIntersectionPoint(VPolEdge edgeA, VPolEdge edgeB) {
+    this.edgeA = edgeA;
+    this.edgeB = edgeB;
+    setIntersectionPointFromPoint(getIntersectionPoint(edgeA, edgeB)!);
+  }
+
+  void setIntersectionPointFromPoint(VPolIntPoint point) {
+    lat = point.lat;
+    lng = point.lng;
+    edgeA = point.edgeA;
+    edgeB = point.edgeB;
+    isInside = point.isInside;
+  }
+
+  static ({double lat, double lng}) getIntersectionPointLatLng(
     ({double lat, double lng}) e1Start,
     ({double lat, double lng}) e1End,
     ({double lat, double lng}) e2Start,
@@ -41,7 +65,7 @@ class VPolIntPoint extends VPoint {
     return (lat: px, lng: py);
   }
 
-  VPolIntPoint? getIntersectionPoint(VPolEdge edgeA, VPolEdge edgeB) {
+  static VPolIntPoint? getIntersectionPoint(VPolEdge edgeA, VPolEdge edgeB) {
     final x1 = edgeA.start.lat;
     final y1 = edgeA.start.lng;
     final x2 = edgeA.end.lat;
@@ -73,12 +97,12 @@ class VPolIntPoint extends VPoint {
       (lat: x3, lng: y3),
       (lat: x4, lng: y4),
     );
-    var ptinside1 = VPolygon().isPointInsidePolygonEdge(
+    var ptinside1 = VPolygon.isPointInsidePolygonEdge(
       intersectionPoint,
       (lat: x1, lng: y1),
       (lat: x2, lng: y2),
     );
-    var ptinside2 = VPolygon().isPointInsidePolygonEdge(
+    var ptinside2 = VPolygon.isPointInsidePolygonEdge(
       intersectionPoint,
       (lat: x3, lng: y3),
       (lat: x4, lng: y4),
