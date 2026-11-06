@@ -24,7 +24,7 @@ No prerequisites for this package.
 ## Usage
 Examples.
 Polygon difference:
-    List<({double lat, double lng})> polygonOriginal = [
+      List<({double lat, double lng})> polygonOriginal = [
         (lat: 0.0, lng: 0.0),
         (lat: 10.0, lng: 0.0),
         (lat: 10.0, lng: 10.0),
@@ -37,7 +37,7 @@ Polygon difference:
         (lat: 3.0, lng: 15.0),
       ];
 
-      VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+      VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
       binary.polygonDifference();
       binary.pDiffPolygons[0].getPolygonLatLng();
       binary.pDiffPolygons[1].getPolygonLatLng();
@@ -58,7 +58,7 @@ Polygon Union:
       (lat: 0.0, lng: 10.0),
     ];
 
-    VPolBinary binary = VPolBinary(polygonOriginal, polygonNew);
+    VPolBinary binary = VPolBinary.runInit(polygonOriginal, polygonNew);
     binary.polygonUnion();
     binary.pUnPolygons[0].getPolygonLatLng();
     var unionPoly = binary.pUnPolygons[0].pointsLatLng;
