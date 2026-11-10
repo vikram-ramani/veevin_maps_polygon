@@ -5,11 +5,38 @@ class VPoint {
   double precision = 0.000000001;
 
   VPoint() {
-    precision = 0.000000001;
+    setPrecision(0.000000001);
+  }
+
+  VPoint.initFromLatLng(
+    double latValue,
+    double lngValue, {
+    double myPrecision = 0.000000001,
+  }) {
+    lat = latValue;
+    lng = lngValue;
+    setPrecision(myPrecision);
+  }
+
+  VPoint.initFromLatLngRec(
+    ({double lat, double lng}) point, {
+    double myPrecision = 0.000000001,
+  }) {
+    lat = point.lat;
+    lng = point.lng;
+    setPrecision(myPrecision);
   }
 
   VPoint.withPrecision(double myPrecision) {
-    this.precision = myPrecision;
+    setPrecision(myPrecision);
+  }
+
+  ({double lat, double lng}) toLatLngRec() {
+    return (lat: lat, lng: lng);
+  }
+
+  void setPrecision(double myPrecision) {
+    precision = myPrecision;
   }
 
   void setLatLng(double latNew, double lngNew) {
@@ -53,11 +80,16 @@ class VPoint {
       (lat: lat, lng: lng),
       (lat: point1.lat, lng: point1.lng),
       (lat: point2.lat, lng: point2.lng),
+      myPrecision: precision,
     );
   }
 
   bool isSame(VPoint point) {
-    return samePoint((lat: lat, lng: lng), (lat: point.lat, lng: point.lng));
+    return samePoint(
+      (lat: lat, lng: lng),
+      (lat: point.lat, lng: point.lng),
+      myPrecision: precision,
+    );
   }
 
   //0 points are at the same distance

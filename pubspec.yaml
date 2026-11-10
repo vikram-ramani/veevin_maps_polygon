@@ -1,6 +1,6 @@
 name: veevin_maps_polygon
 description: "Polygon difference and intersection operations, using floating-point arithmetic."
-version: 1.0.0
+version: 1.1.0
 homepage: https://github.com/veevin/veevin_maps_polygon
 
 environment:

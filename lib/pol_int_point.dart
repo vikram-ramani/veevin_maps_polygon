@@ -7,23 +7,25 @@ class VPolIntPoint extends VPoint {
   late VPolEdge edgeA, edgeB;
   bool isInside = false;
 
-  VPolIntPoint() {
-    precision = 0.000000001;
+  VPolIntPoint({double myPrecision = 0.000000001}) {
+    setPrecision(myPrecision);
   }
 
-  VPolIntPoint.withPrecision(double myPrecision) {
-    precision = myPrecision;
-  }
-
-  VPolIntPoint.initFromEdges(VPolEdge edgeA, VPolEdge edgeB) {
-    precision = 0.000000001;
+  VPolIntPoint.initFromEdges(
+    VPolEdge edgeA,
+    VPolEdge edgeB, {
+    double myPrecision = 0.000000001,
+  }) {
+    setPrecision(myPrecision);
     setIntersectionPoint(edgeA, edgeB);
   }
 
   void setIntersectionPoint(VPolEdge edgeA, VPolEdge edgeB) {
     this.edgeA = edgeA;
     this.edgeB = edgeB;
-    setIntersectionPointFromPoint(getIntersectionPoint(edgeA, edgeB)!);
+    setIntersectionPointFromPoint(
+      getIntersectionPoint(edgeA, edgeB, myPrecision: precision)!,
+    );
   }
 
   void setIntersectionPointFromPoint(VPolIntPoint point) {
@@ -65,7 +67,11 @@ class VPolIntPoint extends VPoint {
     return (lat: px, lng: py);
   }
 
-  static VPolIntPoint? getIntersectionPoint(VPolEdge edgeA, VPolEdge edgeB) {
+  static VPolIntPoint? getIntersectionPoint(
+    VPolEdge edgeA,
+    VPolEdge edgeB, {
+    myPrecision = 0.000000001,
+  }) {
     final x1 = edgeA.start.lat;
     final y1 = edgeA.start.lng;
     final x2 = edgeA.end.lat;
@@ -101,11 +107,13 @@ class VPolIntPoint extends VPoint {
       intersectionPoint,
       (lat: x1, lng: y1),
       (lat: x2, lng: y2),
+      myPrecision: myPrecision,
     );
     var ptinside2 = VPolygon.isPointInsidePolygonEdge(
       intersectionPoint,
       (lat: x3, lng: y3),
       (lat: x4, lng: y4),
+      myPrecision: myPrecision,
     );
     VPolIntPoint intersection = VPolIntPoint();
     intersection.lat = intersectionPoint.lat;

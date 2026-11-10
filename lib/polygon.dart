@@ -5,10 +5,34 @@ import 'package:veevin_maps_polygon/pol_int_point.dart';
 import 'package:veevin_maps_polygon/pol_point.dart';
 
 class VPolygon {
-  final double precision = 0.000000001;
+  double precision = 0.000000001;
   bool printDebug = false;
   List<VPolPoint> points = [];
   List<({double lat, double lng})> pointsLatLng = [];
+
+  VPolygon({double myPrecision = 0.000000001}) {
+    setPrecision(myPrecision);
+  }
+
+  VPolygon.fromLatLngRec(
+    List<({double lat, double lng})> pointsLatLngNew, {
+    double myPrecision = 0.000000001,
+  }) {
+    setPrecision(myPrecision);
+    pointsLatLng = pointsLatLngNew;
+  }
+
+  VPolygon.fromLatLngRecLoad(
+    List<({double lat, double lng})> pointsLatLngNew, {
+    double myPrecision = 0.000000001,
+  }) {
+    setPrecision(myPrecision);
+    loadPolygon(pointsLatLngNew);
+  }
+
+  void setPrecision(double myPrecision) {
+    precision = myPrecision;
+  }
 
   void loadPolygon(List<({double lat, double lng})> pointsLatLngNew) {
     pointsLatLng = pointsLatLngNew;
@@ -171,9 +195,13 @@ class VPolygon {
 
   static bool doPolygonsIntersectExact(
     List<({double lat, double lng})> polygon1,
-    List<({double lat, double lng})> polygon2,
-  ) {
-    final polygonToCheck = VPolygon()..pointsLatLng = polygon2;
+    List<({double lat, double lng})> polygon2, {
+    double myPrecision = 0.000000001,
+  }) {
+    final polygonToCheck = VPolygon.fromLatLngRec(
+      polygon2,
+      myPrecision: myPrecision,
+    );
     for (var point in polygon1) {
       if (polygonToCheck.isPointInsideOrOnEdgePolygonVV(point)) {
         return true;
@@ -198,11 +226,16 @@ class VPolygon {
   //Fast and exact polygon intersection check. First checks bounding boxes, then checks exact intersection.
   static bool doPolygonsIntersectExactFast(
     List<({double lat, double lng})> polygon1,
-    List<({double lat, double lng})> polygon2,
-  ) {
+    List<({double lat, double lng})> polygon2, {
+    double myPrecision = 0.000000001,
+  }) {
     if (!doPolygonsIntersectWithBounds(polygon1, polygon2)) {
       return false;
     }
-    return doPolygonsIntersectExact(polygon1, polygon2);
+    return doPolygonsIntersectExact(
+      polygon1,
+      polygon2,
+      myPrecision: myPrecision,
+    );
   }
 }

@@ -1,14 +1,8 @@
 import 'package:veevin_maps_polygon/point.dart';
+import 'package:veevin_maps_polygon/pol_bound_seg.dart';
 import 'package:veevin_maps_polygon/pol_int_point.dart';
 import 'package:veevin_maps_polygon/pol_point.dart';
 import 'package:veevin_maps_polygon/polygon.dart';
-
-class BoundarySegment {
-  BoundarySegment(this.start, this.end);
-
-  final ({double lat, double lng}) start;
-  final ({double lat, double lng}) end;
-}
 
 class VPolBinary {
   double precision = 0.000000001;
@@ -19,7 +13,9 @@ class VPolBinary {
   List<VPolygon> pDiffPolygons = [];
   List<VPolygon> pUnPolygons = [];
 
-  VPolBinary() {}
+  VPolBinary({double myPrecision = 0.000000001}) {
+    setPrecision(myPrecision);
+  }
 
   VPolBinary.runInit(
     List<({double lat, double lng})> pointsLatLngA,
@@ -60,7 +56,7 @@ class VPolBinary {
       final aEdge = pA.points[i].next;
       for (int j = 0; j < pB.points.length; j++) {
         final bEdge = pB.points[j].next;
-        VPolIntPoint.getIntersectionPoint(aEdge, bEdge);
+        VPolIntPoint.getIntersectionPoint(aEdge, bEdge, myPrecision: precision);
       }
     }
   }
@@ -68,7 +64,7 @@ class VPolBinary {
   //pA -pB
   // get difference polygon
   void polygonDifference() {
-    final segments = <BoundarySegment>[
+    final segments = <VPolBoundSeg>[
       ...getBoundarySegments(pA, pB, keepInside: false),
       ...getBoundarySegments(pB, pA, keepInside: true, reverse: true),
     ];
@@ -76,13 +72,13 @@ class VPolBinary {
     pDiff = pDiffPolygons.isEmpty ? VPolygon() : pDiffPolygons.first;
   }
 
-  List<BoundarySegment> getBoundarySegments(
+  List<VPolBoundSeg> getBoundarySegments(
     VPolygon polygon,
     VPolygon other, {
     required bool keepInside,
     bool reverse = false,
   }) {
-    final segments = <BoundarySegment>[];
+    final segments = <VPolBoundSeg>[];
     for (final point in polygon.points) {
       final edge = point.next;
       final start = (lat: edge.start.lat, lng: edge.start.lng);
@@ -104,7 +100,11 @@ class VPolBinary {
       final orderedPoints = <({double lat, double lng})>[];
       for (final splitPoint in splitPoints) {
         if (orderedPoints.isEmpty ||
-            !VPoint.samePoint(orderedPoints.last, splitPoint)) {
+            !VPoint.samePoint(
+              orderedPoints.last,
+              splitPoint,
+              myPrecision: precision,
+            )) {
           orderedPoints.add(splitPoint);
         }
       }
@@ -121,8 +121,16 @@ class VPolBinary {
 
         segments.add(
           reverse
-              ? BoundarySegment(segmentEnd, segmentStart)
-              : BoundarySegment(segmentStart, segmentEnd),
+              ? VPolBoundSeg.fromNamedRec(
+                  segmentEnd,
+                  segmentStart,
+                  myPrecision: precision,
+                )
+              : VPolBoundSeg.fromNamedRec(
+                  segmentStart,
+                  segmentEnd,
+                  myPrecision: precision,
+                ),
         );
       }
     }
@@ -130,7 +138,7 @@ class VPolBinary {
   }
 
   List<VPolygon> traceBoundaryRings(
-    List<BoundarySegment> segments, {
+    List<VPolBoundSeg> segments, {
     required String operation,
   }) {
     final usedSegments = List<bool>.filled(segments.length, false);
@@ -139,18 +147,24 @@ class VPolBinary {
     for (int i = 0; i < segments.length; i++) {
       if (usedSegments[i]) continue;
 
-      final ring = <({double lat, double lng})>[segments[i].start];
+      final ring = <({double lat, double lng})>[
+        segments[i].start.toLatLngRec(),
+      ];
       var currentSegmentIndex = i;
       var isClosed = false;
 
       while (!usedSegments[currentSegmentIndex]) {
         final segment = segments[currentSegmentIndex];
         usedSegments[currentSegmentIndex] = true;
-        if (VPoint.samePoint(segment.end, ring.first)) {
+        if (VPoint.samePoint(
+          segment.end.toLatLngRec(),
+          ring.first,
+          myPrecision: precision,
+        )) {
           isClosed = true;
           break;
         }
-        ring.add(segment.end);
+        ring.add(segment.end.toLatLngRec());
 
         currentSegmentIndex = -1;
         for (
@@ -159,7 +173,11 @@ class VPolBinary {
           candidateIndex++
         ) {
           if (!usedSegments[candidateIndex] &&
-              VPoint.samePoint(segments[candidateIndex].start, segment.end)) {
+              VPoint.samePoint(
+                segments[candidateIndex].start.toLatLngRec(),
+                segment.end.toLatLngRec(),
+                myPrecision: precision,
+              )) {
             currentSegmentIndex = candidateIndex;
             break;
           }
@@ -196,7 +214,7 @@ class VPolBinary {
   // pA + pB
   // Get the union polygon boundaries, including separate rings when disjoint.
   void polygonUnion() {
-    final segments = <BoundarySegment>[
+    final segments = <VPolBoundSeg>[
       ...getBoundarySegments(pA, pB, keepInside: false),
       ...getBoundarySegments(pB, pA, keepInside: false),
     ];
