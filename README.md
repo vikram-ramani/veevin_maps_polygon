@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-Polygon difference and union using floating point arithmetic. These are binary operations. Used for geo coordinates, with adjustible precision.
+Polygon difference and union using floating point arithmetic. These are binary operations. Used for geo coordinates, with adjustable precision.
 
 ## Features
 
